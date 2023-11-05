@@ -87,7 +87,11 @@ export default antfu(
           'unknown', // <- unknown
         ],
         'pathGroups': [
-          { pattern: 'vue**', group: 'external', position: 'before' },
+          { pattern: 'node**', group: 'external', position: 'before' },
+          { pattern: 'vue', group: 'external', position: 'before' },
+          { pattern: '**/plugin-vue', group: 'external', position: 'before' },
+          { pattern: 'vite**', group: 'external', position: 'before' },
+          { pattern: '**/vite', group: 'external', position: 'before' },
           { pattern: 'pinia', group: 'external', position: 'before' },
           { pattern: 'axios', group: 'external', position: 'before' },
           { pattern: 'http-status-codes', group: 'external', position: 'before' },
@@ -110,7 +114,7 @@ export default antfu(
           { pattern: '**/components/**', group: 'external', position: 'before' },
           { pattern: '^[./]', group: 'internal', position: 'before' },
         ],
-        'pathGroupsExcludedImportTypes': ['vue'],
+        'pathGroupsExcludedImportTypes': ['vue',],
         'alphabetize': {
           order: 'asc',
           caseInsensitive: true,
