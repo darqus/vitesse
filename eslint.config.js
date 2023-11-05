@@ -2,9 +2,9 @@ import antfu from '@antfu/eslint-config'
 import unocss from '@unocss/eslint-plugin'
 
 export default antfu(
-  { vue: true, typescript: true },
+  { vue: true, typescript: true, },
   {
-    files: ['**/*.ts'],
+    files: [ '**/*.ts',],
     rules: {
       'ts/comma-dangle': 'off',
 
@@ -16,7 +16,7 @@ export default antfu(
 
       'ts/no-unsafe-assignment': 'off',
 
-      'ts/no-shadow': ['error' ],
+      'ts/no-shadow': [ 'error', ],
 
       'ts/no-unused-vars': 'error',
 
@@ -30,7 +30,7 @@ export default antfu(
       ],
 
       // to enforce using type for object type definitions, can be type or interface
-      'ts/consistent-type-definitions': ['error', 'type' ],
+      'ts/consistent-type-definitions': [ 'error', 'type', ],
 
       // this rule, if on, would require explicit return type on the `render` function
       'ts/explicit-function-return-type': 'off',
@@ -44,7 +44,7 @@ export default antfu(
     },
   },
   {
-    files: ['**/*.vue'],
+    files: [ '**/*.vue',],
     rules: {
       // https://eslint.vuejs.org/rules/v-on-event-hyphenation.html
       'vue/v-on-event-hyphenation': [
@@ -76,75 +76,76 @@ export default antfu(
   },
   {
     rules: {
-      'import/order': ['error', {
+      'import/order': [ 'error', {
         'newlines-between': 'always',
         'groups': [
           'builtin', // Built-in imports (come from NodeJS native) go first
           'external', // <- External imports
           'internal', // <- Absolute imports
-          ['sibling', 'parent'], // <- Relative imports, the sibling and parent types they can be mingled together
+          [ 'sibling', 'parent',], // <- Relative imports, the sibling and parent types they can be mingled together
           'index', // <- index imports
           'unknown', // <- unknown
         ],
         'pathGroups': [
-          { pattern: 'node**', group: 'external', position: 'before' },
-          { pattern: 'vue', group: 'external', position: 'before' },
-          { pattern: '**/plugin-vue', group: 'external', position: 'before' },
-          { pattern: 'vite**', group: 'external', position: 'before' },
-          { pattern: '**/vite', group: 'external', position: 'before' },
-          { pattern: 'pinia', group: 'external', position: 'before' },
-          { pattern: 'axios', group: 'external', position: 'before' },
-          { pattern: 'http-status-codes', group: 'external', position: 'before' },
-          { pattern: 'quasar', group: 'external', position: 'before' },
-          { pattern: 'quasar/**', group: 'external', position: 'before' },
-          { pattern: 'boot', group: 'external', position: 'before' },
-          { pattern: 'types', group: 'external', position: 'before' },
-          { pattern: '**/types/**', group: 'external', position: 'before' },
-          { pattern: 'routes', group: 'external', position: 'before' },
-          { pattern: '**/routes/**', group: 'external', position: 'before' },
-          { pattern: 'api', group: 'external', position: 'before' },
-          { pattern: '**/services/api/**', group: 'external', position: 'before' },
-          { pattern: 'stores', group: 'external', position: 'before' },
-          { pattern: '**/stores/**', group: 'external', position: 'before' },
-          { pattern: 'utils', group: 'external', position: 'before' },
-          { pattern: '**/utils/**', group: 'external', position: 'before' },
-          { pattern: 'module', group: 'external', position: 'before' },
-          { pattern: '**/components/common/**', group: 'external', position: 'before' },
-          { pattern: 'components', group: 'external', position: 'before' },
-          { pattern: '**/components/**', group: 'external', position: 'before' },
-          { pattern: '^[./]', group: 'internal', position: 'before' },
+          { pattern: 'node**', group: 'external', position: 'before', },
+          { pattern: 'vue', group: 'external', position: 'before', },
+          { pattern: '**/plugin-vue', group: 'external', position: 'before', },
+          { pattern: 'vite**', group: 'external', position: 'before', },
+          { pattern: '**/vite', group: 'external', position: 'before', },
+          { pattern: 'virtual:**', group: 'external', position: 'before', },
+          { pattern: 'pinia', group: 'external', position: 'before', },
+          { pattern: 'axios', group: 'external', position: 'before', },
+          { pattern: 'http-status-codes', group: 'external', position: 'before', },
+          { pattern: 'quasar', group: 'external', position: 'before', },
+          { pattern: 'quasar/**', group: 'external', position: 'before', },
+          { pattern: 'boot', group: 'external', position: 'before', },
+          { pattern: 'types', group: 'external', position: 'before', },
+          { pattern: '**/types/**', group: 'external', position: 'before', },
+          { pattern: 'routes', group: 'external', position: 'before', },
+          { pattern: '**/routes/**', group: 'external', position: 'before', },
+          { pattern: 'api', group: 'external', position: 'before', },
+          { pattern: '**/services/api/**', group: 'external', position: 'before', },
+          { pattern: 'stores', group: 'external', position: 'before', },
+          { pattern: '**/stores/**', group: 'external', position: 'before', },
+          { pattern: 'utils', group: 'external', position: 'before', },
+          { pattern: '**/utils/**', group: 'external', position: 'before', },
+          { pattern: 'module', group: 'external', position: 'before', },
+          { pattern: '**/components/common/**', group: 'external', position: 'before', },
+          { pattern: 'components', group: 'external', position: 'before', },
+          { pattern: '**/components/**', group: 'external', position: 'before', },
+          { pattern: '^[./]', group: 'internal', position: 'before', },
         ],
-        'pathGroupsExcludedImportTypes': ['vue',],
+        'pathGroupsExcludedImportTypes': [ 'vue'],
         'alphabetize': {
           order: 'asc',
           caseInsensitive: true,
         },
         'distinctGroup': true,
         'warnOnUnassignedImports': true,
-      }],
+      },],
 
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-console': [ 'warn', { allow: [ 'warn', 'error',] },],
 
       'curly': 'error',
 
-      'comma-dangle': ['error', {
+      'comma-dangle': [ 'error', {
         arrays: 'always',
         objects: 'always',
         imports: 'always',
         exports: 'always',
         functions: 'never',
-      }],
+      },],
 
-      'array-bracket-spacing': ['error', 'always'],
+      'array-bracket-spacing': [ 'error', 'always',],
 
-      'eqeqeq': ['error', 'smart'],
+      'eqeqeq': [ 'error', 'smart',],
 
       'prefer-promise-reject-errors': 'off',
 
       'quotes': [
         'error',
         'single',
-        { avoidEscape: true, allowTemplateLiterals: false },
+        { avoidEscape: true, allowTemplateLiterals: false, },
       ],
 
       // allow debugger during development only
@@ -154,31 +155,31 @@ export default antfu(
 
       'no-shadow': 'off',
 
-      'no-var': ['error'],
+      'no-var': [ 'error',],
 
-      'lines-between-class-members': ['error', 'always'],
+      'lines-between-class-members': [ 'error', 'always',],
 
       'padding-line-between-statements': [
         'error',
         {
           blankLine: 'always',
           prev: '*',
-          next: ['return', 'export', 'const', 'let'],
+          next: [ 'return', 'export', 'const', 'let',],
         },
-        { blankLine: 'always', prev: ['const', 'let'], next: '*' },
+        { blankLine: 'always', prev: [ 'const', 'let',], next: '*', },
         {
           blankLine: 'any',
-          prev: ['const', 'let'],
-          next: ['const', 'let'],
+          prev: [ 'const', 'let',],
+          next: [ 'const', 'let',],
         },
         {
           blankLine: 'always',
-          prev: ['case', 'default', 'directive'],
+          prev: [ 'case', 'default', 'directive',],
           next: '*',
         },
-        { blankLine: 'any', prev: 'directive', next: 'directive' },
+        { blankLine: 'any', prev: 'directive', next: 'directive', },
       ],
     },
   },
-  unocss.configs.flat,
+  unocss.configs.flat
 )
